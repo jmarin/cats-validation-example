@@ -1,4 +1,4 @@
-package com.jmarin.examples.validation
+package com.jmarin.examples.validation.model
 
 trait RegistrationError:
   def errorMessage: String
@@ -13,11 +13,11 @@ case object InvalidPassword extends RegistrationError:
       "include an uppercase and a lowercase letter, " +
       "one number and one special character"
 
-case object InvalidFirst extends RegistrationError:
+case object InvalidFirstName extends RegistrationError:
   override def errorMessage: String =
     "First name cannot contain spaces, numbers or special characters"
 
-case object InvalidLast extends RegistrationError:
+case object InvalidLastName extends RegistrationError:
   override def errorMessage: String =
     "Last name cannot contain spaces, numbers or special characters"
 
@@ -37,6 +37,12 @@ case object InvalidAddress extends RegistrationError:
 
 case object InvalidZipCode extends RegistrationError:
   override def errorMessage: String = "Zip code format is invalid"
+
+case object InvalidState extends RegistrationError:
+  override def errorMessage: String = "State format is invalid"
+
+case object InvalidCity extends RegistrationError:
+  override def errorMessage: String = "City name cannot be empty"
 
 case object InvalidCreatedDate extends RegistrationError:
   override def errorMessage: String =

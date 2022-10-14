@@ -1,4 +1,4 @@
-package com.jmarin.examples.validation
+package com.jmarin.examples.validation.model
 
 import java.time.LocalDateTime
 
@@ -19,16 +19,16 @@ import java.time.LocalDateTime
   *
   * 6. email should be valid
   *
-  * 7. phone should be in the form (XXX)-XXX-XXXX
+  * 7. phone should be a valid US phone number
   *
   * 8. address should not be empty
   *
   * 9. zip code should be short or long form (5 digit or 5 digit + "-" 4 digits)
   *
-  * 10. created data should be a valid date, after year 2000
+  * 10. created data should be a valid date
   */
 
-final case class RegisterUser(
+final case class RegisteredUser(
     username: String,
     password: String,
     first: String,
@@ -40,5 +40,5 @@ final case class RegisterUser(
     zip: String,
     city: String,
     state: String,
-    createdData: LocalDateTime
+    createdDate: LocalDateTime
 )
