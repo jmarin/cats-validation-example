@@ -1,2 +1,11 @@
-*.class
-*.log
+.idea/
+.bloop/
+.metals/
+.bsp/
+.vscode/
+metals.sbt
+target/
+boot/
+lib_managed/
+src_managed/
+project/plugins/project/
