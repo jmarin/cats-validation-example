@@ -6,14 +6,14 @@ import java.time.LocalDateTime
   *
   * User needs to be validated against the following conditions
   *
-  *   1. username must not be empty, and it must contain special characters
+  *   1. username must not contain special characters
   *
   * 2. Password must be at least 12 characters long, include an uppercase and
   * lowercase letter, one number and one special character
   *
-  * 3. first must not be empty
+  * 3. first must not contain spaces, numbers or special characters
   *
-  * 4. last must not be empty
+  * 4. last must not contain spaces, numbers or special characters
   *
   * 5. age must be between 18 and 99
   *
