@@ -21,6 +21,7 @@ lazy val validation =
   crossProject(JSPlatform, JVMPlatform, NativePlatform)
     .crossType(CrossType.Full)
     .in(file("."))
+    .enablePlugins(JavaAppPackaging)
     .configs(IntegrationTest)
     .settings(Defaults.itSettings ++ sharedSettings)
     .jvmSettings(
