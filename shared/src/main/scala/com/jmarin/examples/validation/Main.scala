@@ -5,6 +5,8 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.LocalDateTime
 import com.jmarin.examples.validation.api.CatsValidation
+import io.circe.syntax.*
+import com.jmarin.examples.validation.serialization.JsonDecoders.given
 
 object ValidationMain:
 
@@ -27,7 +29,9 @@ object ValidationMain:
       "DC",
       now
     )
-    println(s"Either Validation, valid user: $registeredEitherUser")
+    println(
+      s"Either Validation, valid user:\n ${registeredEitherUser.map(_.asJson)}"
+    )
 
     val invalidEitherUser = EitherValidator.validateRegistration(
       "jmarinotero",
@@ -43,7 +47,9 @@ object ValidationMain:
       "Europa",
       now
     )
-    println(s"Either Validation, invalid user: $invalidEitherUser")
+    println(
+      s"Either Validation, invalid user:\n ${invalidEitherUser.map(_.asJson)}"
+    )
 
     // A better approach, using ValidatedNel
     val registeredValidatedUser = CatsValidation.validateRegistration(
@@ -60,4 +66,24 @@ object ValidationMain:
       "DC",
       now
     )
-    println(s"ValidatedNel Validation, valid user: $registeredValidatedUser")
+    println(
+      s"ValidatedNel Validation, valid user: ${registeredValidatedUser.map(_.asJson)}"
+    )
+
+    val invalidValidateduser = CatsValidation.validateRegistration(
+      "jmarinotero",
+      "password",
+      "Juan",
+      "Marin",
+      25,
+      "juanemail.com",
+      "(111)-349-5555",
+      "I live in this address",
+      "207",
+      "Washington",
+      "Europa",
+      now
+    )
+    println(
+      s"ValidatedNel validation, invalid user:\n ${invalidValidateduser.map(_.asJson)}"
+    )

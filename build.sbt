@@ -13,7 +13,10 @@ val sharedSettings = Seq(
   libraryDependencies ++= Seq(
     "org.scalatest" %%% "scalatest" % Version.scalaTest % "it, test",
     "org.scalacheck" %%% "scalacheck" % Version.scalaCheck % "it, test",
-    "org.typelevel" %%% "cats-core" % Version.cats
+    "org.typelevel" %%% "cats-core" % Version.cats,
+    "io.circe" %%% "circe-core" % Version.circe,
+    "io.circe" %%% "circe-generic" % Version.circe,
+    "io.circe" %%% "circe-parser" % Version.circe
   )
 )
 
